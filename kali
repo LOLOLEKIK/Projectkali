@@ -1,12 +1,12 @@
 #!/bin/bash
 if [ $1 = "up" ]
 then
-	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-launcher.desktop', 'pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop', 'io.elementary.appcenter.desktop', 'gnome-control-center.desktop']"
+	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'install4j_8kyqom-BurpSuiteCommunity.desktop', 'firefox.desktop', 'obsidian.desktop', 'org.gnome.Terminal.desktop', 'gnome-control-center.desktop']"
 	gsettings set org.gnome.desktop.background picture-uri file:///home/lololekik/Images/Logo_bicromique_3.png
-	docker run -ti --name lololekali -h kali lololekali
+	docker run -ti --name lololekali -h kali lololekali tmux
 elif [ $1 = "down" ]
 then
-	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-launcher.desktop', 'pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop', 'io.elementary.appcenter.desktop', 'gnome-control-center.desktop']"
+	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'teams.desktop', 'firefox.desktop', 'discord.desktop', 'org.gnome.Terminal.desktop', 'io.elementary.appcenter.desktop', 'gnome-control-center.desktop']"
 	gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/pop/kate-hazen-pop-space.png
 	docker container rm lololekali
 elif [ $1 = "build" ]
@@ -14,7 +14,7 @@ then
 	docker build -t lololekali .
 elif [ $1 = "resume" ]
 then
-	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-launcher.desktop', 'pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop', 'io.elementary.appcenter.desktop', 'gnome-control-center.desktop']"
+	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'install4j_8kyqom-BurpSuiteCommunity.desktop', 'firefox.desktop', 'obsidian.desktop', 'org.gnome.Terminal.desktop', 'gnome-control-center.desktop']"
         gsettings set org.gnome.desktop.background picture-uri file:///home/lololekik/Images/Logo_bicromique_3.png
 	docker start -ai lololekali
 else
