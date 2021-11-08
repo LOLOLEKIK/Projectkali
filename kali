@@ -1,23 +1,35 @@
 #!/bin/bash
 if [ $1 = "up" ]
 then
-	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'install4j_8kyqom-BurpSuiteCommunity.desktop', 'firefox.desktop', 'obsidian.desktop', 'org.gnome.Terminal.desktop', 'gnome-control-center.desktop']"
-	gsettings set org.gnome.desktop.background picture-uri file:///home/lololekik/Images/Logo_bicromique_3.png
+	# modifier ci-dessous pour changer la barre des favoris en mode  pentest
+	gsettings set org.gnome.shell favorite-apps REPLACENEW
+	gsettings set org.gnome.desktop.background picture-uri file:///usr/share/kaliproject/pentest.png
 	docker run -ti --name lololekali -h kali lololekali tmux
 elif [ $1 = "down" ]
 then
-	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'teams.desktop', 'firefox.desktop', 'discord.desktop', 'org.gnome.Terminal.desktop', 'io.elementary.appcenter.desktop', 'gnome-control-center.desktop']"
-	gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/pop/kate-hazen-pop-space.png
+	# modifier ci-dessous pour changer la barre des favoris en mode normal
+	gsettings set org.gnome.shell favorite-apps REPLACEOLD
+	# modifier ci-dessous pour changer le fond d'écran en mode normal
+	gsettings set org.gnome.desktop.background picture-uri REPLACEDESKTOP
 	docker container rm lololekali
 elif [ $1 = "build" ]
 then
-	docker build -t lololekali .
+	docker build -t lololekali /usr/share/kaliproject/
 elif [ $1 = "resume" ]
 then
-	gsettings set org.gnome.shell favorite-apps "['pop-cosmic-workspaces.desktop', 'org.gnome.Nautilus.desktop', 'install4j_8kyqom-BurpSuiteCommunity.desktop', 'firefox.desktop', 'obsidian.desktop', 'org.gnome.Terminal.desktop', 'gnome-control-center.desktop']"
-        gsettings set org.gnome.desktop.background picture-uri file:///home/lololekik/Images/Logo_bicromique_3.png
+	# modifier ci-dessous pour changer la barre des favoris en mode pentest
+	gsettings set org.gnome.shell favorite-apps REPLACENEW
+	gsettings set org.gnome.desktop.background picture-uri file:///usr/share/kaliproject/pentest.png
 	docker start -ai lololekali
+elif [ $1 = "delete" ]
+then
+	docker image rm lololekali
 else
-	echo "Utiliser UP pour monter l'environnement et down pour arreter"
-	echo "Utiliser build pour construire l'environnement et resume pour reprendre le container"
+	echo "Bienvenue dans l'aide"
+	echo "		up		Lance le container"
+	echo "		down		Supprime le container"
+	echo "		resume		Relance le container pour reprendre un pentest"
+	echo "		build		Construit l'image kali"
+	echo "		delete		Supprime l'image"
+	echo "Auteur : LOLOLEKIK"
 fi
