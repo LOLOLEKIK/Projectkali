@@ -20,7 +20,7 @@ then
 	# modifier ci-dessous pour changer la barre des favoris en mode pentest
 	gsettings set org.gnome.shell favorite-apps REPLACENEW
 	gsettings set org.gnome.desktop.background picture-uri file:///usr/share/kaliproject/pentest.png
-	docker start -ai lololekali tmux
+	docker start -ai lololekali
 elif [ $1 = "delete" ]
 then
 	docker image rm lololekali
