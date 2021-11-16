@@ -1,6 +1,7 @@
 # Kali Linux (Rolling) Docker Image
 # 11/2021
-#
+
+##
 # Buld the image with:
 #   $ docker build -t lololekali .
 #
@@ -37,10 +38,19 @@ RUN apt-get install -y \
 # Install utils
 RUN apt-get install -y \
     vim \
-    git
+    git nano inetutils-*
 
 # Setup gdb-peda
 RUN git clone https://github.com/longld/peda.git ~/peda && \
     echo "source ~/peda/peda.py" >> ~/.gdbinit
 
+#setup impacket
+RUN apt install python3-pip
+RUN git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket
+RUN pip3 install -r /opt/impacket/requirements.txt
+RUN cd /opt/impacket/
+RUN python3 ./setup.py install
+COPY /usr/share/kaliproject/ ~/.bashrc.update
+RUN mv ~/.bashrc ~/.bashrc.old
+RUN ~/.bashrc.update ~/.bashrc
 CMD ["/bin/bash"]

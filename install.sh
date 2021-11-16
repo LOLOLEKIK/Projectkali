@@ -8,9 +8,11 @@ sudo sed -i "s/REPLACEOLD/\"${favorite}\"/g" /usr/bin/kali
 sudo sed -i "s/REPLACENEW/\"${new}\"/g" /usr/bin/kali
 sudo sed -i "s#REPLACEDESKTOP#${desktop}#g" /usr/bin/kali
 sudo mkdir -p /usr/share/kaliproject
+sudo cp .bashrc /usr/share/kaliproject
 sudo cp Dockerfile /usr/share/kaliproject/
 sudo cp pentest.png /usr/share/kaliproject/
 
+#test
 if [ -e /usr/bin/kali -a -e /usr/share/kaliproject/pentest.png -a -e /usr/share/kaliproject/Dockerfile ]
 then
     echo "L'installation semble avoir fonctionné"
