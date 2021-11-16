@@ -48,7 +48,7 @@ RUN git clone https://github.com/longld/peda.git ~/peda && \
 RUN apt install python3-pip
 RUN git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket
 RUN pip3 install -r /opt/impacket/requirements.txt
-#RUN sudo python3 /opt/impacket/setup.py install
+RUN cd /opt/impacket && sudo python3 ./setup.py install
 COPY .bashrc.new /root/
 RUN mv ~/.bashrc ~/.bashrc.old
 RUN mv ~/.bashrc.new ~/.bashrc
