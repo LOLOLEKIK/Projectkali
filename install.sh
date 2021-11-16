@@ -8,7 +8,7 @@ sudo sed -i "s/REPLACEOLD/\"${favorite}\"/g" /usr/bin/kali
 sudo sed -i "s/REPLACENEW/\"${new}\"/g" /usr/bin/kali
 sudo sed -i "s#REPLACEDESKTOP#${desktop}#g" /usr/bin/kali
 sudo mkdir -p /usr/share/kaliproject
-sudo cp .bashrc /usr/share/kaliproject
+sudo cp .bashrc.new /usr/share/kaliproject
 sudo cp Dockerfile /usr/share/kaliproject/
 sudo cp pentest.png /usr/share/kaliproject/
 
