@@ -34,7 +34,7 @@ RUN apt update && apt -y install kali-tools-vulnerability kali-tools-web kali-to
 # Install Other tools
 RUN apt-get install -y \
     gdb
-
+RUN gem install evil-winrm
 # Install utils
 RUN apt-get install -y \
     vim \
@@ -53,3 +53,7 @@ COPY .bashrc.new /root/
 RUN mv ~/.bashrc ~/.bashrc.old
 RUN mv ~/.bashrc.new ~/.bashrc
 CMD ["/bin/bash"]
+CMD ["cd"]
+
+#Expose port for communication
+EXPOSE 9800-9900
