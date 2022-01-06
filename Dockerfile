@@ -33,7 +33,7 @@ RUN apt update && apt -y install kali-tools-vulnerability kali-tools-web kali-to
 
 # Install Other tools
 RUN apt-get install -y \
-    gdb
+    gdb assetfinder
 RUN gem install evil-winrm
 # Install utils
 RUN apt-get install -y \
@@ -52,8 +52,9 @@ RUN cd /opt/impacket && sudo python3 ./setup.py install
 COPY .bashrc.new /root/
 RUN mv ~/.bashrc ~/.bashrc.old
 RUN mv ~/.bashrc.new ~/.bashrc
-CMD ["/bin/bash"]
-CMD ["cd"]
+
+#folder to share
+RUN mkdir -p /share/kali
 
 #Expose port for communication
 EXPOSE 9800-9900

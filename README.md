@@ -31,7 +31,7 @@ Pour personaliser le fond d'écran lorsque vous êtes en mode pentest, vous pouv
 
 Pour modifier le fond d'écran en mode normal vous devrez modifier le fichier le script kali dans 
 ```
-/usr/bin/kali
+/bin/kali
 ```
 
 et remplacer la ligne suivante dans la partie "down" en ajoutant le bon chemin.
@@ -46,7 +46,7 @@ gsettings get org.gnome.shell favorite-apps
 ```
 Copiez ensuite la chaine de charactère et aller la remplacer dans l'endroit voulu dans le script à l'emplacement ci-dessous :
 ```
-/usr/bin/kali
+/bin/kali
 ```
 
 **Attention** : Si vous remplacez dans le UP n'oubliez pas de remplacer dans le resume aussi.
