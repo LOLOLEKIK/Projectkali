@@ -1,20 +1,13 @@
 #!/bin/bash
 
-favorite="$(gsettings get org.gnome.shell favorite-apps)"
-new="['org.gnome.Nautilus.desktop', 'install4j_8kyqom-BurpSuiteCommunity.desktop', 'firefox.desktop']"
-desktop="$(gsettings get org.gnome.desktop.background picture-uri)"
 sudo cp kali /usr/bin/
-sudo sed -i "s/REPLACEOLD/\"${favorite}\"/g" /usr/bin/kali
-sudo sed -i "s/REPLACENEW/\"${new}\"/g" /usr/bin/kali
-sudo sed -i "s#REPLACEDESKTOP#${desktop}#g" /usr/bin/kali
 sudo mkdir -p /usr/share/kaliproject
 sudo mkdir -p /share/kali
 sudo cp .bashrc.new /usr/share/kaliproject
 sudo cp Dockerfile /usr/share/kaliproject/
-sudo cp pentest.png /usr/share/kaliproject/
-
+sudo cp history /usr/share/kaliproject/
 #test
-if [ -e /usr/bin/kali -a -e /usr/share/kaliproject/pentest.png -a -e /usr/share/kaliproject/Dockerfile -a -e /share/kali ]
+if [ -e /usr/bin/kali -a -e /usr/share/kaliproject/pentest.png -a -e /usr/share/kaliproject/Dockerfile -a -e /share/kali -a -e /usr/share/kaliproject/history ]
 then
     echo "L'installation semble avoir fonctionné"
 else

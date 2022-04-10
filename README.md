@@ -3,9 +3,7 @@
 Le projet Kali permet de pouvoir faire du pentest  dans son environnement linux habituel en virtualisant un container Kali. Cela permet de s'affranchir de l'utilisation d'une machine virtuelle en gardant un environnement isolé. Uniquement les applications comme graphique, comme burpsuite, ne sont pas isolées.
 
 ## Pre-requis
-1. Installer burpsuite version community dans notre cas : 
-https://portswigger.net/burp/communitydownload
-2. Il faut aussi installer docker
+1. Il faut aussi installer docker
 
 ```
 sudo apt-get install docker-ce docker-ce-cli containerd.io
@@ -22,34 +20,27 @@ Une fois le tout installer vous pouvez lancer la préparation de l'image (l'éta
 ```
 kali build
 ```
-## Personnalisation
-### Fonds d'écrans
-Pour personaliser le fond d'écran lorsque vous êtes en mode pentest, vous pouvez vous rendre dans le répertoire ci-dessous et remplacer **pentest.png**
+## Port
+Des ports sont mappés afin de pouvoir recevoir les reverse-shell et, plus gobalement, communiquer avec les machines.
+
+Il s'agit des port 9800 à 9900
+
+## Patage
+
+Afin de partager des fichiers plus efficacement avec l'hôte vous pouvez vous rendre dans
 ```
-/usr/share/kaliproject/
+/share/kali
 ```
 
-Pour modifier le fond d'écran en mode normal vous devrez modifier le fichier le script kali dans 
+## Ne vous souvenez plus des commandes !
+
+Si vous êtes habitué à utiliser des commandes et que vous ne vous rappelez jamais de la syntax, vous avez juste à les rajouter dans le fichier
+
 ```
-/bin/kali
+/usr/share/kaliproject/history
 ```
 
-et remplacer la ligne suivante dans la partie "down" en ajoutant le bon chemin.
-```
-gsettings set org.gnome.desktop.background picture-uri CHEMIN
-```
-
-### Barre favoris
-Afin de modifier la barre de favoris, faites glisser les applications à l'intérieur et une fois que la composition vous satisfait utilisez la commande suivante :
-```
-gsettings get org.gnome.shell favorite-apps
-```
-Copiez ensuite la chaine de charactère et aller la remplacer dans l'endroit voulu dans le script à l'emplacement ci-dessous :
-```
-/bin/kali
-```
-
-**Attention** : Si vous remplacez dans le UP n'oubliez pas de remplacer dans le resume aussi.
+J'en ajoute aussi très souvent, il ne manque plus qu'à faire une recherche récursive et le tour est joué ;)
 
 ## Help
 ```

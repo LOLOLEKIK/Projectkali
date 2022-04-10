@@ -50,6 +50,7 @@ RUN git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket
 RUN pip3 install -r /opt/impacket/requirements.txt
 RUN cd /opt/impacket && sudo python3 ./setup.py install
 COPY .bashrc.new /root/
+COPY history /root/.bash_history
 RUN mv ~/.bashrc ~/.bashrc.old
 RUN mv ~/.bashrc.new ~/.bashrc
 

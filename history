@@ -1,0 +1,5 @@
+nmap -sC -sV -Pn IP
+nmap -sC -sV -v IP
+john --wordlist=/usr/share/wordlists/rockyou.txt --format='dynamic=sha512($p.$s)' hash.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt --format=Raw-SHA512 hash.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
